@@ -14,7 +14,7 @@
     $sql = "INSERT INTO Visits (ip_address, page_url, user_agent) VALUES ('$ip', '$page_url', '$user_agent')";
     $conn->query($sql);
 
-    $visit_count = $conn->query("SELECT COUNT(*) AS count FROM Visits")->fetch_assoc()['count'];
+    $visit = $conn->query("SELECT COUNT(*) AS count FROM Visits")->fetch_assoc()['count'];
 
     $person = $conn->query("SELECT * FROM Person LIMIT 1")->fetch_assoc();
     $person_id = $person['person_id'];
@@ -229,4 +229,5 @@
 
 <?php
 $conn->close();
+
 ?>
